@@ -55,6 +55,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to 'View profile', user_path(current_user), class: 'dropdown-item' %>
             <%= link_to 'Edit profile', edit_user_path(current_user), class: 'dropdown-item' %>
+            <%= link_to 'Delete profile', user_path(current_user), class: 'dropdown-item text-danger', method: :delete, data: {confirm: 'Are you sure?'} %>
             </li>
             <li class="nav-item">
               <%= link_to 'Logout', logout_path, class: 'nav-link', method: :delete %>
@@ -63,10 +64,10 @@
             <li class="nav-item">
               <%= link_to 'Login', login_path, class: 'nav-link' %>
             </li>
-            <li class="nav-item">
-              <%= link_to 'Sign up', signup_path, class: 'nav-link' %>
-            </li>
           <% end %>
+          <li class="nav-item">
+          <%= link_to 'Sign up', signup_path, class: 'nav-link' %>
+        </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input
