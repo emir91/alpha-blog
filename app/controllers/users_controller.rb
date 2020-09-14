@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show, :destroy]
   before_action :require_user, except: [:show, :index, :new, :create]
   before_action :require_same_user, only: [:edit, :update, :destroy]
-
+  before_action :is_user_admin, only: [:edit, :update]
   def index
     @users = User.paginate(page: params[:page], per_page: 2)
   end
@@ -59,6 +59,13 @@ class UsersController < ApplicationController
   def require_same_user
     if current_user != @user && !current_user.admin?
       flash[:alert] = "You can only edit or delete your own profile"
+      redirect_to @user
+    end
+  end
+
+  def is_user_admin
+    if current_user.admin? && current_user != @user
+      flash[:alert] = "You can not edit profile as admin."
       redirect_to @user
     end
   end
