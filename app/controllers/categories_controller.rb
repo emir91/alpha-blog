@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :require_admin, except:[:index, :show]
   
   def new
     @category = Category.new
@@ -23,6 +24,13 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def require_admin
+    if !(logged_in? && current_user.admin?)
+      flash[:alert] = "You can't preform that unless you are an admin"
+      redirect_to categories_path
+    end
+  end
 
   def category_params
     params.require(:category).permit(:name)
