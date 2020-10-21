@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a CRUD application done by Rails 6.
+Idea is that user can:
+-post article,
+-edit article and
+-delete article.
+Also app has an authentication system, so that user can sign up and login after that.
+For styling I have used CSS and Bootstrap 4.
 
-Things you may want to cover:
+Things that I have covered:
 
-* Ruby version
+* CRUD actions
 
-* System dependencies
+* Authentication system
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Database relations(one to many and many to many associations)
