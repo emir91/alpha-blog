@@ -1,6 +1,6 @@
 # ALPHA BLOG
 
-This is a CRUD application done by Rails 6.
+This is a CRUD application done in Rails 6.
 Idea is that user can:
 *post article,
 *edit article and
